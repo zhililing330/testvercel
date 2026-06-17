@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { caseCatalog } from "./cases";
 import { caseStudies, portfolioBrand, processSteps } from "./portfolio";
 
 describe("portfolio content contracts", () => {
@@ -13,5 +14,25 @@ describe("portfolio content contracts", () => {
 
   it("keeps the small-studio process to four steps", () => {
     expect(processSteps).toHaveLength(4);
+  });
+
+  it("derives homepage case studies from the shared case catalog", () => {
+    expect(caseStudies).toEqual([
+      {
+        href: "/dental",
+        industry: caseCatalog.dental.industry,
+        brand: caseCatalog.dental.brand,
+      },
+      {
+        href: "/law",
+        industry: caseCatalog.law.industry,
+        brand: caseCatalog.law.brand,
+      },
+      {
+        href: "/real-estate",
+        industry: caseCatalog.realEstate.industry,
+        brand: caseCatalog.realEstate.brand,
+      },
+    ]);
   });
 });
