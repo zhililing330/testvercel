@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
 import { caseCatalog } from "./cases";
-import { caseStudies, portfolioBrand, processSteps } from "./portfolio";
+import {
+  caseStudies,
+  portfolioBrand,
+  portfolioCases,
+  processSteps,
+} from "./portfolio";
 
 describe("portfolio content contracts", () => {
   it("defines the portfolio brand and exactly three case-study routes", () => {
@@ -34,5 +39,15 @@ describe("portfolio content contracts", () => {
         brand: caseCatalog.realEstate.brand,
       },
     ]);
+  });
+
+  it("derives the lightweight case-study list from the homepage case source", () => {
+    expect(caseStudies).toEqual(
+      portfolioCases.map(({ href, industry, brand }) => ({
+        href,
+        industry,
+        brand,
+      })),
+    );
   });
 });

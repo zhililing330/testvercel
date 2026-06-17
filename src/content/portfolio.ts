@@ -28,12 +28,6 @@ export const sectionIntro = {
   },
 } as const;
 
-export const caseStudies = [
-  caseCatalog.dental,
-  caseCatalog.law,
-  caseCatalog.realEstate,
-] as const;
-
 export const portfolioCases = [
   {
     id: "dental",
@@ -57,6 +51,12 @@ export const portfolioCases = [
     summary: "把高净值房源展示、区域信任感与线索收集放进更轻盈的浏览路径里，兼顾品牌感与效率。",
   },
 ] as const;
+
+export const caseStudies = portfolioCases.map(({ href, industry, brand }) => ({
+  href,
+  industry,
+  brand,
+})) as readonly (typeof caseCatalog)[keyof typeof caseCatalog][];
 
 export const capabilities = [
   {
