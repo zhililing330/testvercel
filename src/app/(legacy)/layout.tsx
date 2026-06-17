@@ -1,22 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import "./globals.css";
+import "../globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ai1234567.xyz"),
   title: {
-    default: "Linea Studio | 行业网站作品集",
+    default: "Linea Studio",
     template: "%s | Linea Studio",
   },
-  description:
-    "面向服务型行业的高品质官网作品集，包含牙医、律师事务所与房产经纪案例。",
+  description: "Bilingual portfolio websites for service businesses.",
   openGraph: {
     type: "website",
     locale: "zh_CN",
     url: "https://ai1234567.xyz",
     siteName: "Linea Studio",
-    title: "Linea Studio | 行业网站作品集",
-    description:
-      "面向服务型行业的高品质官网作品集，包含牙医、律师事务所与房产经纪案例。",
+    title: "Linea Studio",
+    description: "Bilingual portfolio websites for service businesses.",
   },
   alternates: {
     canonical: "/",
@@ -29,13 +27,13 @@ export const viewport: Viewport = {
   themeColor: "#0d1726",
 };
 
-export default function RootLayout({
+export default function LegacyRootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN">
+    <html lang="zh">
       <body>{children}</body>
     </html>
   );

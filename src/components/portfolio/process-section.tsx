@@ -1,6 +1,9 @@
-import { processDetails, sectionIntro } from "@/content/portfolio";
+import { getPortfolioContent } from "@/content/portfolio";
+import { AppLocale } from "@/i18n/config";
 
-export function ProcessSection() {
+export function ProcessSection({ locale }: { locale: AppLocale }) {
+  const content = getPortfolioContent(locale);
+
   return (
     <section
       id="process"
@@ -8,31 +11,24 @@ export function ProcessSection() {
     >
       <div className="max-w-3xl">
         <p className="text-sm font-semibold uppercase tracking-[0.08em] text-slate-500">
-          合作流程
+          {content.sections.process.eyebrow}
         </p>
         <h2 className="mt-3 text-3xl font-semibold text-slate-950 sm:text-4xl">
-          {sectionIntro.process.title}
+          {content.sections.process.title}
         </h2>
         <p className="mt-4 text-base leading-8 text-slate-600 sm:text-lg">
-          {sectionIntro.process.body}
+          {content.sections.process.body}
         </p>
       </div>
 
-      <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-        {processDetails.map((step, index) => (
+      <div className="mt-8 grid gap-6 lg:grid-cols-4">
+        {content.process.map((step) => (
           <article
             key={step.title}
-            className="rounded-[8px] border border-slate-200 bg-white p-6"
+            className="rounded-[8px] border border-slate-200 bg-white p-6 shadow-[0_18px_48px_rgba(18,24,38,0.08)]"
           >
-            <p className="text-sm font-semibold text-slate-500">
-              0{index + 1}
-            </p>
-            <h3 className="mt-3 text-xl font-semibold text-slate-950">
-              {step.title}
-            </h3>
-            <p className="mt-3 text-sm leading-7 text-slate-600">
-              {step.body}
-            </p>
+            <h3 className="text-xl font-semibold text-slate-950">{step.title}</h3>
+            <p className="mt-4 text-sm leading-7 text-slate-600">{step.body}</p>
           </article>
         ))}
       </div>

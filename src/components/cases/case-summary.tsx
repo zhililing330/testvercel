@@ -1,4 +1,5 @@
 type CaseSummaryProps = {
+  ariaLabel: string;
   eyebrow?: string;
   title: string;
   description: string;
@@ -6,6 +7,7 @@ type CaseSummaryProps = {
 };
 
 export function CaseSummary({
+  ariaLabel,
   eyebrow,
   title,
   description,
@@ -13,7 +15,7 @@ export function CaseSummary({
 }: CaseSummaryProps) {
   return (
     <section
-      aria-label="Case study summary"
+      aria-label={ariaLabel}
       className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10 lg:py-20"
     >
       <div className="rounded-[8px] border border-slate-200 bg-slate-950 px-6 py-8 text-white shadow-[0_24px_60px_rgba(15,23,42,0.18)] sm:px-10 sm:py-10">
