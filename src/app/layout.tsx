@@ -1,41 +1,24 @@
 import type { Metadata, Viewport } from "next";
+import { SiteFooter } from "@/components/portfolio/site-footer";
+import { SiteHeader } from "@/components/portfolio/site-header";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://qinghe-dental.example.com"),
+  metadataBase: new URL("https://ai1234567.xyz"),
   title: {
-    default: "晴禾齿科 | 现代化牙医诊所",
-    template: "%s | 晴禾齿科",
+    default: "Linea Studio | 行业网站作品集",
+    template: "%s | Linea Studio",
   },
   description:
-    "晴禾齿科提供口腔检查、牙齿美白、隐形矫正、种植修复等现代化口腔诊疗服务，使用数字化设备与透明方案守护全家口腔健康。",
-  keywords: [
-    "牙医诊所",
-    "晴禾齿科",
-    "口腔检查",
-    "牙齿美白",
-    "隐形矫正",
-    "种植修复",
-    "上海牙科",
-  ],
-  authors: [{ name: "晴禾齿科" }],
-  creator: "晴禾齿科",
+    "面向服务型行业的高品质官网作品集，包含牙医、律师事务所与房产经纪案例。",
   openGraph: {
     type: "website",
     locale: "zh_CN",
-    url: "https://qinghe-dental.example.com",
-    siteName: "晴禾齿科",
-    title: "晴禾齿科 | 现代化牙医诊所",
+    url: "https://ai1234567.xyz",
+    siteName: "Linea Studio",
+    title: "Linea Studio | 行业网站作品集",
     description:
-      "从常规检查到隐形矫正，晴禾齿科以数字化设备、温和沟通和透明方案守护全家口腔健康。",
-    images: [
-      {
-        url: "/images/clinic-hero.png",
-        width: 1200,
-        height: 630,
-        alt: "晴禾齿科现代化数字牙科诊室",
-      },
-    ],
+      "面向服务型行业的高品质官网作品集，包含牙医、律师事务所与房产经纪案例。",
   },
   alternates: {
     canonical: "/",
@@ -45,7 +28,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0f766e",
+  themeColor: "#0d1726",
 };
 
 export default function RootLayout({
@@ -55,7 +38,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
-      <body>{children}</body>
+      <body>
+        <div className="portfolio-shell">
+          <SiteHeader />
+          <main className="portfolio-main">{children}</main>
+          <SiteFooter />
+        </div>
+      </body>
     </html>
   );
 }
