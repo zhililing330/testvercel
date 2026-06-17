@@ -38,8 +38,12 @@ body {
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+}
+
+.portfolio-header a,
+.portfolio-footer a {
+  color: inherit;
 }
 
 .portfolio-header,
