@@ -1,0 +1,21 @@
+import { render, screen } from "@testing-library/react";
+import HomePage from "./page";
+
+describe("portfolio homepage", () => {
+  it("shows the studio headline and links to the three case-study routes", async () => {
+    render(await HomePage());
+
+    expect(screen.getByText(/服务型行业/i)).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /晴禾齿科/i })).toHaveAttribute(
+      "href",
+      "/dental",
+    );
+    expect(
+      screen.getByRole("link", { name: /衡正律师事务所/i }),
+    ).toHaveAttribute("href", "/law");
+    expect(screen.getByRole("link", { name: /珑域地产/i })).toHaveAttribute(
+      "href",
+      "/real-estate",
+    );
+  });
+});

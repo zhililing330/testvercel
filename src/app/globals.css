@@ -37,6 +37,12 @@ body {
     ui-sans-serif, system-ui, sans-serif;
 }
 
+.portfolio-home {
+  background: var(--portfolio-bg);
+  color: var(--portfolio-ink);
+  padding-bottom: 2rem;
+}
+
 a {
   text-decoration: none;
 }
