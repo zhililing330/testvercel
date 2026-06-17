@@ -34,23 +34,29 @@ export const caseStudies = [
   caseCatalog.realEstate,
 ] as const;
 
-export const caseStudyHighlights = {
-  "/dental": {
+export const portfolioCases = [
+  {
+    id: "dental",
+    ...caseCatalog.dental,
     image: "/images/portfolio/case-dental.jpg",
     alt: "牙科诊所官网案例画面",
     summary: "以安心、洁净与预约转化为核心，重构服务说明、就诊流程与移动端咨询入口。",
   },
-  "/law": {
+  {
+    id: "law",
+    ...caseCatalog.law,
     image: "/images/portfolio/case-law.jpg",
     alt: "律师事务所官网案例画面",
     summary: "突出专业可信的团队表达与服务边界，让访客在短时间内读懂擅长领域并产生咨询意愿。",
   },
-  "/real-estate": {
+  {
+    id: "realEstate",
+    ...caseCatalog.realEstate,
     image: "/images/portfolio/case-real-estate.jpg",
     alt: "房产经纪官网案例画面",
     summary: "把高净值房源展示、区域信任感与线索收集放进更轻盈的浏览路径里，兼顾品牌感与效率。",
   },
-} as const;
+] as const;
 
 export const capabilities = [
   {

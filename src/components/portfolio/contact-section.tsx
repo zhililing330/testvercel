@@ -3,6 +3,7 @@ import { contactSection } from "@/content/portfolio";
 export function ContactSection() {
   return (
     <section
+      aria-label="联系合作"
       id="contact"
       className="mx-auto max-w-7xl px-6 py-10 sm:px-8 lg:px-10 lg:py-14"
     >

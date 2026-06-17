@@ -1,10 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  caseStudies,
-  caseStudyHighlights,
-  sectionIntro,
-} from "@/content/portfolio";
+import { portfolioCases, sectionIntro } from "@/content/portfolio";
 
 export function CaseStudyGrid() {
   return (
@@ -26,18 +22,16 @@ export function CaseStudyGrid() {
       </div>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-3">
-        {caseStudies.map((study) => {
-          const highlight = caseStudyHighlights[study.href];
-
-          return (
-            <article
-              key={study.href}
-              className="overflow-hidden rounded-[8px] border border-slate-200 bg-white shadow-[0_18px_48px_rgba(18,24,38,0.08)]"
-            >
+        {portfolioCases.map((study) => (
+          <article
+            key={study.id}
+            className="overflow-hidden rounded-[8px] border border-slate-200 bg-white shadow-[0_18px_48px_rgba(18,24,38,0.08)] transition hover:-translate-y-0.5 hover:shadow-[0_24px_60px_rgba(18,24,38,0.12)]"
+          >
+            <Link className="block h-full" href={study.href}>
               <div className="relative aspect-[4/3] bg-slate-100">
                 <Image
-                  src={highlight.image}
-                  alt={highlight.alt}
+                  src={study.image}
+                  alt={study.alt}
                   fill
                   sizes="(min-width: 1024px) 30vw, 100vw"
                   className="object-cover"
@@ -48,17 +42,15 @@ export function CaseStudyGrid() {
                   {study.industry}
                 </p>
                 <h3 className="mt-2 text-2xl font-semibold text-slate-950">
-                  <Link className="hover:text-slate-700" href={study.href}>
-                    {study.brand}
-                  </Link>
+                  {study.brand}
                 </h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600">
-                  {highlight.summary}
+                  {study.summary}
                 </p>
               </div>
-            </article>
-          );
-        })}
+            </Link>
+          </article>
+        ))}
       </div>
     </section>
   );
