@@ -1,6 +1,7 @@
 import { isValidElement } from "react";
 import { render, screen } from "@testing-library/react";
 import RootLayout from "@/app/layout";
+import { caseCatalog } from "@/content/cases";
 import { SiteFooter } from "./site-footer";
 import { SiteHeader } from "./site-header";
 
@@ -34,18 +35,17 @@ describe("portfolio shell", () => {
   it("renders footer links to the three case-study routes", () => {
     render(<SiteFooter />);
 
-    expect(screen.getByRole("link", { name: "晴禾齿科" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: caseCatalog.dental.brand })).toHaveAttribute(
       "href",
       "/dental",
     );
-    expect(screen.getByRole("link", { name: "衡正律师事务所" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: caseCatalog.law.brand })).toHaveAttribute(
       "href",
       "/law",
     );
-    expect(screen.getByRole("link", { name: "珑域地产" })).toHaveAttribute(
-      "href",
-      "/real-estate",
-    );
+    expect(
+      screen.getByRole("link", { name: caseCatalog.realEstate.brand }),
+    ).toHaveAttribute("href", "/real-estate");
   });
 
   it("keeps the root layout focused on document shell only", () => {

@@ -1,10 +1,10 @@
 import Link from "next/link";
+import { caseCatalog } from "@/content/cases";
 
-const caseStudyLinks = [
-  { href: "/dental", label: "晴禾齿科" },
-  { href: "/law", label: "衡正律师事务所" },
-  { href: "/real-estate", label: "珑域地产" },
-] as const;
+const caseStudyLinks = Object.values(caseCatalog).map(({ href, brand }) => ({
+  href,
+  label: brand,
+})) as readonly { href: string; label: string }[];
 
 export function SiteFooter() {
   return (

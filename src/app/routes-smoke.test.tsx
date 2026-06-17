@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import DentalPage from "./dental/page";
 import HomePage from "./page";
@@ -12,14 +12,16 @@ describe("portfolio homepage", () => {
       "/",
     );
 
+    const caseStudies = screen.getByRole("region", { name: /首页案例/i });
+
     expect(
-      screen.getByRole("link", { name: /Sunny Dental/i }),
+      within(caseStudies).getByRole("link", { name: /Sunny Dental/i }),
     ).toHaveAttribute("href", "/dental");
     expect(
-      screen.getByRole("link", { name: /Hengzheng Law Office/i }),
+      within(caseStudies).getByRole("link", { name: /Hengzheng Law Office/i }),
     ).toHaveAttribute("href", "/law");
     expect(
-      screen.getByRole("link", { name: /Banyu Real Estate/i }),
+      within(caseStudies).getByRole("link", { name: /Banyu Real Estate/i }),
     ).toHaveAttribute("href", "/real-estate");
   });
 });
@@ -28,7 +30,7 @@ describe("dental case route", () => {
   it("renders the dental brand and a reusable portfolio return path", () => {
     render(<DentalPage />);
 
-    expect(screen.getByText("Sunny Dental")).toBeInTheDocument();
+    expect(screen.getByText("Sunny Dental", { selector: "p" })).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: /Back to portfolio/i }),
     ).toHaveAttribute("href", "/");
