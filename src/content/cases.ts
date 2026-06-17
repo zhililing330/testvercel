@@ -49,3 +49,55 @@ export const dentalCaseSummary = {
     "Uses CaseSummary near the bottom so future case routes can close with consistent project context.",
   ],
 } as const;
+
+export const lawCaseMeta = {
+  title: "Hengzheng Law Office case study",
+  description:
+    "A legal-services case page focused on credibility, practice-area clarity, and consultation intent.",
+} as const;
+
+export const lawCaseSections = [
+  { href: "#overview", label: "Overview" },
+  { href: "#practice", label: "Practice areas" },
+  { href: "#approach", label: "Approach" },
+  { href: "#contact", label: "Contact" },
+] as const;
+
+export const lawCaseSummary = {
+  eyebrow: "Case summary",
+  title:
+    "This law-firm template balances authority, clarity, and a low-friction consultation path.",
+  description:
+    "The page is designed for legal teams that need to communicate trust quickly, explain where they are strongest, and guide qualified inquiries into a clear next step.",
+  bullets: [
+    "Introduces the firm with a restrained, confidence-building hero and concise positioning copy.",
+    "Organizes services into clear practice-area groups that are easy to scan on desktop and mobile.",
+    "Closes with a consultation section that feels professional instead of promotional.",
+  ],
+} as const;
+
+export const realEstateCaseMeta = {
+  title: "Banyu Real Estate case study",
+  description:
+    "A real-estate brokerage case page that combines premium listings, neighborhood trust, and viewing conversion.",
+} as const;
+
+export const realEstateCaseSections = [
+  { href: "#overview", label: "Overview" },
+  { href: "#listings", label: "Listings" },
+  { href: "#services", label: "Services" },
+  { href: "#contact", label: "Contact" },
+] as const;
+
+export const realEstateCaseSummary = {
+  eyebrow: "Case summary",
+  title:
+    "This brokerage template pairs premium presentation with a simpler path to schedule a viewing.",
+  description:
+    "The page brings together listing highlights, buyer guidance, and contact prompts so prospects can understand the offer quickly and move toward a property conversation.",
+  bullets: [
+    "Uses a visually led hero to present the brand as polished, local, and high-touch.",
+    "Turns featured inventory into easy-to-compare cards without overwhelming the page.",
+    "Ends with a viewing section that supports both high-intent inquiries and early-stage browsing.",
+  ],
+} as const;
