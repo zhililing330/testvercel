@@ -28,7 +28,6 @@ export function CaseShell({
           <div className="flex min-w-0 items-center gap-4">
             <Link
               href="/"
-              aria-label="Back to portfolio homepage"
               className="inline-flex h-10 items-center rounded-[8px] border border-slate-200 px-4 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:text-slate-950"
             >
               {portfolioReturnLabel}

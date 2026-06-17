@@ -1,18 +1,18 @@
 export const caseCatalog = {
   dental: {
     href: "/dental",
-    industry: "Dental clinic",
-    brand: "Sunny Dental",
+    industry: "牙医诊所",
+    brand: "晴禾齿科",
   },
   law: {
     href: "/law",
-    industry: "Law firm",
-    brand: "Hengzheng Law Office",
+    industry: "律师事务所",
+    brand: "衡正律师事务所",
   },
   realEstate: {
     href: "/real-estate",
-    industry: "Real estate brokerage",
-    brand: "Banyu Real Estate",
+    industry: "房产经纪",
+    brand: "珑域地产",
   },
 } as const;
 
@@ -22,7 +22,7 @@ export const caseBrands = {
   realEstate: caseCatalog.realEstate.brand,
 } as const;
 
-export const portfolioReturnLabel = "Back to portfolio";
+export const portfolioReturnLabel = "返回作品集";
 
 export const dentalCaseMeta = {
   title: "Sunny Dental case study",

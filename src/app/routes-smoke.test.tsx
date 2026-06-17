@@ -15,13 +15,13 @@ describe("portfolio homepage", () => {
     const caseStudies = screen.getByRole("region", { name: /首页案例/i });
 
     expect(
-      within(caseStudies).getByRole("link", { name: /Sunny Dental/i }),
+      within(caseStudies).getByRole("link", { name: /晴禾齿科/i }),
     ).toHaveAttribute("href", "/dental");
     expect(
-      within(caseStudies).getByRole("link", { name: /Hengzheng Law Office/i }),
+      within(caseStudies).getByRole("link", { name: /衡正律师事务所/i }),
     ).toHaveAttribute("href", "/law");
     expect(
-      within(caseStudies).getByRole("link", { name: /Banyu Real Estate/i }),
+      within(caseStudies).getByRole("link", { name: /珑域地产/i }),
     ).toHaveAttribute("href", "/real-estate");
   });
 });
@@ -30,9 +30,9 @@ describe("dental case route", () => {
   it("renders the dental brand and a reusable portfolio return path", () => {
     render(<DentalPage />);
 
-    expect(screen.getByText("Sunny Dental", { selector: "p" })).toBeInTheDocument();
+    expect(screen.getByText("晴禾齿科", { selector: "p" })).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: /Back to portfolio/i }),
+      screen.getByRole("link", { name: /返回作品集/i }),
     ).toHaveAttribute("href", "/");
   });
 
