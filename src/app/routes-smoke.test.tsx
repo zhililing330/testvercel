@@ -1,46 +1,62 @@
-import { render, screen, within } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import { describe, expect, it } from "vitest";
+import DentalPage from "./dental/page";
 import HomePage from "./page";
 
 describe("portfolio homepage", () => {
-  it("shows the studio headline and full-card links to the three case-study routes", async () => {
-    render(await HomePage());
+  it("shows the studio brand and full-card links to the three case-study routes", () => {
+    render(<HomePage />);
 
-    expect(screen.getByText(/服务型行业/i)).toBeInTheDocument();
-
-    const caseStudies = screen.getByRole("region", { name: /首页案例/i });
-
-    expect(
-      within(caseStudies).getByRole("link", { name: /牙医诊所[\s\S]*晴禾齿科/i }),
-    ).toHaveAttribute(
+    expect(screen.getAllByRole("link", { name: /Linea Studio/i })[0]).toHaveAttribute(
       "href",
-      "/dental",
+      "/",
     );
+
     expect(
-      within(caseStudies).getByRole("link", {
-        name: /律师事务所[\s\S]*衡正律师事务所/i,
-      }),
+      screen.getByRole("link", { name: /Sunny Dental/i }),
+    ).toHaveAttribute("href", "/dental");
+    expect(
+      screen.getByRole("link", { name: /Hengzheng Law Office/i }),
     ).toHaveAttribute("href", "/law");
     expect(
-      within(caseStudies).getByRole("link", {
-        name: /房产经纪[\s\S]*珑域地产/i,
-      }),
+      screen.getByRole("link", { name: /Banyu Real Estate/i }),
     ).toHaveAttribute("href", "/real-estate");
   });
+});
 
-  it("renders the hero CTAs and the core homepage sections", async () => {
-    render(await HomePage());
+describe("dental case route", () => {
+  it("renders the dental brand and a reusable portfolio return path", () => {
+    render(<DentalPage />);
 
-    const hero = screen.getByRole("region", { name: /作品集首页首屏/i });
+    expect(screen.getByText("Sunny Dental")).toBeInTheDocument();
     expect(
-      within(hero).getByRole("link", { name: /查看案例/i }),
-    ).toHaveAttribute("href", "#cases");
-    expect(
-      within(hero).getByRole("link", { name: /咨询合作/i }),
-    ).toHaveAttribute("href", "#contact");
+      screen.getByRole("link", { name: /Back to portfolio/i }),
+    ).toHaveAttribute("href", "/");
+  });
 
-    expect(screen.getByRole("region", { name: /首页案例/i })).toBeInTheDocument();
+  it("renders the migrated dental homepage structure and summary", () => {
+    render(<DentalPage />);
+
     expect(
-      screen.getByRole("region", { name: /联系合作/i }),
+      screen.getByRole("heading", {
+        level: 1,
+        name: /Dental care that feels calm, clear, and modern/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("region", { name: /Dental services/i }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "Preventive checkups" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "A transparent visit flow" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /Book a consultation/i }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("region", { name: /Case study summary/i }),
     ).toBeInTheDocument();
   });
 });
