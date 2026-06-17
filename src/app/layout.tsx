@@ -1,6 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { SiteFooter } from "@/components/portfolio/site-footer";
-import { SiteHeader } from "@/components/portfolio/site-header";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -38,13 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
-      <body>
-        <div className="portfolio-shell">
-          <SiteHeader />
-          <main className="portfolio-main">{children}</main>
-          <SiteFooter />
-        </div>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
