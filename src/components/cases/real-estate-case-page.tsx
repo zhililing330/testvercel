@@ -35,6 +35,7 @@ export function RealEstateCasePage() {
   return (
     <CaseShell
       brand={caseCatalog.realEstate.brand}
+      currentPath={caseCatalog.realEstate.href}
       industry={caseCatalog.realEstate.industry}
       navItems={realEstateCaseSections}
     >

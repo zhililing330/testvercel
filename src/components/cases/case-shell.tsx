@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { SiteFooter } from "@/components/portfolio/site-footer";
-import { portfolioReturnLabel } from "@/content/cases";
+import { caseCatalog, portfolioReturnLabel } from "@/content/cases";
 
 type CaseNavItem = {
   href: string;
@@ -10,6 +10,7 @@ type CaseNavItem = {
 
 type CaseShellProps = {
   brand: string;
+  currentPath: string;
   industry: string;
   navItems?: readonly CaseNavItem[];
   children: ReactNode;
@@ -17,10 +18,15 @@ type CaseShellProps = {
 
 export function CaseShell({
   brand,
+  currentPath,
   industry,
   navItems,
   children,
 }: CaseShellProps) {
+  const siblingCases = Object.values(caseCatalog).filter(
+    (item) => item.href !== currentPath,
+  );
+
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl">
@@ -53,6 +59,31 @@ export function CaseShell({
       </header>
 
       <main className="bg-white text-slate-950">{children}</main>
+      <section
+        aria-label="More case studies"
+        className="mx-auto max-w-7xl px-5 py-12 sm:px-8 lg:px-10 lg:py-16"
+      >
+        <div className="rounded-[8px] border border-slate-200 bg-slate-50 px-6 py-8 sm:px-8">
+          <p className="text-sm font-semibold uppercase tracking-[0.08em] text-slate-500">
+            More case studies
+          </p>
+          <h2 className="mt-4 text-3xl font-semibold text-slate-950">
+            Explore how the same portfolio system adapts to other service businesses.
+          </h2>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            {siblingCases.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-[8px] border border-slate-200 bg-white px-5 py-5 transition hover:border-slate-300 hover:bg-slate-100"
+              >
+                <p className="text-sm font-semibold text-slate-500">{item.industry}</p>
+                <p className="mt-2 text-xl font-semibold text-slate-950">{item.brand}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
       <SiteFooter />
     </>
   );

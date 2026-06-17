@@ -1,5 +1,6 @@
 import { render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
+import { caseCatalog, portfolioReturnLabel } from "@/content/cases";
 import DentalPage from "./dental/page";
 import LawPage from "./law/page";
 import HomePage from "./page";
@@ -17,14 +18,14 @@ describe("portfolio homepage", () => {
     const caseStudies = screen.getByRole("region", { name: /首页案例/i });
 
     expect(
-      within(caseStudies).getByRole("link", { name: /晴禾齿科/i }),
-    ).toHaveAttribute("href", "/dental");
+      within(caseStudies).getByRole("link", { name: new RegExp(caseCatalog.dental.brand) }),
+    ).toHaveAttribute("href", caseCatalog.dental.href);
     expect(
-      within(caseStudies).getByRole("link", { name: /衡正律师事务所/i }),
-    ).toHaveAttribute("href", "/law");
+      within(caseStudies).getByRole("link", { name: new RegExp(caseCatalog.law.brand) }),
+    ).toHaveAttribute("href", caseCatalog.law.href);
     expect(
-      within(caseStudies).getByRole("link", { name: /珑域地产/i }),
-    ).toHaveAttribute("href", "/real-estate");
+      within(caseStudies).getByRole("link", { name: new RegExp(caseCatalog.realEstate.brand) }),
+    ).toHaveAttribute("href", caseCatalog.realEstate.href);
   });
 });
 
@@ -32,10 +33,11 @@ describe("dental case route", () => {
   it("renders the dental brand and a reusable portfolio return path", () => {
     render(<DentalPage />);
 
-    expect(screen.getByText("晴禾齿科", { selector: "p" })).toBeInTheDocument();
-    expect(
-      screen.getByRole("link", { name: /返回作品集/i }),
-    ).toHaveAttribute("href", "/");
+    expect(screen.getByText(caseCatalog.dental.brand, { selector: "p" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: portfolioReturnLabel })).toHaveAttribute(
+      "href",
+      "/",
+    );
   });
 
   it("renders the migrated dental homepage structure and summary", () => {
@@ -63,13 +65,26 @@ describe("dental case route", () => {
       screen.getByRole("region", { name: /Case study summary/i }),
     ).toBeInTheDocument();
   });
+
+  it("offers links to the other case studies near the bottom", () => {
+    render(<DentalPage />);
+
+    const moreCases = screen.getByRole("region", { name: /More case studies/i });
+
+    expect(
+      within(moreCases).getByRole("link", { name: new RegExp(caseCatalog.law.brand) }),
+    ).toHaveAttribute("href", caseCatalog.law.href);
+    expect(
+      within(moreCases).getByRole("link", { name: new RegExp(caseCatalog.realEstate.brand) }),
+    ).toHaveAttribute("href", caseCatalog.realEstate.href);
+  });
 });
 
 describe("secondary case-study routes", () => {
   it("renders the law-firm case page", () => {
     render(<LawPage />);
 
-    expect(screen.getByText("衡正律师事务所", { selector: "p" })).toBeInTheDocument();
+    expect(screen.getByText(caseCatalog.law.brand, { selector: "p" })).toBeInTheDocument();
     expect(
       screen.getByRole("heading", { name: /Practice areas built for fast qualification/i }),
     ).toBeInTheDocument();
@@ -81,7 +96,7 @@ describe("secondary case-study routes", () => {
   it("renders the real-estate case page", () => {
     render(<RealEstatePage />);
 
-    expect(screen.getByText("珑域地产", { selector: "p" })).toBeInTheDocument();
+    expect(screen.getByText(caseCatalog.realEstate.brand, { selector: "p" })).toBeInTheDocument();
     expect(
       screen.getByRole("heading", {
         name: /Featured homes with enough context to compare/i,

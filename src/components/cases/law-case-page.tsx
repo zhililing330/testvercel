@@ -32,6 +32,7 @@ export function LawCasePage() {
   return (
     <CaseShell
       brand={caseCatalog.law.brand}
+      currentPath={caseCatalog.law.href}
       industry={caseCatalog.law.industry}
       navItems={lawCaseSections}
     >

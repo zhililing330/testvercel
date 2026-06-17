@@ -175,6 +175,7 @@ export function DentalCasePage() {
   return (
     <CaseShell
       brand={caseCatalog.dental.brand}
+      currentPath={caseCatalog.dental.href}
       industry={caseCatalog.dental.industry}
       navItems={dentalCaseSections}
     >
