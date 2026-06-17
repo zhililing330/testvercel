@@ -2,8 +2,10 @@ import { describe, expect, it } from "vitest";
 import {
   DEFAULT_LOCALE,
   LOCALE_PREFIXES,
+  getLocaleSwitcherCopy,
   isSupportedLocale,
   localizePath,
+  switchLocalePath,
 } from "./config";
 
 describe("locale config", () => {
@@ -24,5 +26,13 @@ describe("locale config", () => {
     expect(localizePath("en", "/")).toBe("/en");
     expect(localizePath("zh", "/dental")).toBe("/zh/dental");
     expect(localizePath("en", "/real-estate")).toBe("/en/real-estate");
+  });
+
+  it("maps localized routes and labels for the language switcher", () => {
+    expect(switchLocalePath("/zh", "en")).toBe("/en");
+    expect(switchLocalePath("/en/dental", "zh")).toBe("/zh/dental");
+    expect(switchLocalePath("/zh#cases", "en")).toBe("/en/#cases");
+    expect(getLocaleSwitcherCopy("zh").labels.en).toBe("英文");
+    expect(getLocaleSwitcherCopy("en").labels.zh).toBe("Chinese");
   });
 });

@@ -1,8 +1,15 @@
 import Link from "next/link";
+import { LocaleSwitcher } from "@/components/portfolio/locale-switcher";
 import { getPortfolioContent } from "@/content/portfolio";
 import { AppLocale, localizePath } from "@/i18n/config";
 
-export function SiteHeader({ locale }: { locale: AppLocale }) {
+export function SiteHeader({
+  locale,
+  currentPath,
+}: {
+  locale: AppLocale;
+  currentPath: string;
+}) {
   const content = getPortfolioContent(locale);
 
   const sectionLinks = [
@@ -25,9 +32,18 @@ export function SiteHeader({ locale }: { locale: AppLocale }) {
             </Link>
           ))}
         </nav>
-        <Link className="portfolio-cta" href={localizePath(locale, "/#contact")}>
-          {content.header.cta}
-        </Link>
+        <div className="portfolio-header__actions">
+          <LocaleSwitcher
+            locale={locale}
+            currentPath={currentPath}
+            className="portfolio-locale-switcher"
+            linkClassName="portfolio-locale-switcher__link"
+            activeLinkClassName="portfolio-locale-switcher__link--active"
+          />
+          <Link className="portfolio-cta" href={localizePath(locale, "/#contact")}>
+            {content.header.cta}
+          </Link>
+        </div>
       </div>
     </header>
   );

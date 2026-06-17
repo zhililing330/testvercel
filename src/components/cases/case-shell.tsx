@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { LocaleSwitcher } from "@/components/portfolio/locale-switcher";
 import { SiteFooter } from "@/components/portfolio/site-footer";
 import { getCaseCatalog, getCaseShellCopy } from "@/content/cases";
 import { AppLocale, localizePath } from "@/i18n/config";
@@ -49,15 +50,24 @@ export function CaseShell({
             </div>
           </div>
 
-          {navItems && navItems.length > 0 ? (
-            <nav className="hidden items-center gap-5 text-sm font-semibold text-slate-600 md:flex">
-              {navItems.map((item) => (
-                <a key={item.href} href={item.href} className="transition hover:text-slate-950">
-                  {item.label}
-                </a>
-              ))}
-            </nav>
-          ) : null}
+          <div className="flex items-center gap-3">
+            {navItems && navItems.length > 0 ? (
+              <nav className="hidden items-center gap-5 text-sm font-semibold text-slate-600 md:flex">
+                {navItems.map((item) => (
+                  <a key={item.href} href={item.href} className="transition hover:text-slate-950">
+                    {item.label}
+                  </a>
+                ))}
+              </nav>
+            ) : null}
+            <LocaleSwitcher
+              locale={locale}
+              currentPath={currentPath}
+              className="inline-flex items-center rounded-[8px] border border-slate-200 bg-white p-1"
+              linkClassName="inline-flex min-w-12 items-center justify-center rounded-[6px] px-3 py-2 text-sm font-semibold text-slate-500 transition hover:text-slate-950"
+              activeLinkClassName="bg-slate-950 text-white hover:text-white"
+            />
+          </div>
         </div>
       </header>
 
