@@ -9,6 +9,7 @@ import {
 export function CaseStudyGrid() {
   return (
     <section
+      aria-label="首页案例"
       id="cases"
       className="mx-auto max-w-7xl px-6 py-10 sm:px-8 lg:px-10 lg:py-14"
     >
@@ -47,17 +48,13 @@ export function CaseStudyGrid() {
                   {study.industry}
                 </p>
                 <h3 className="mt-2 text-2xl font-semibold text-slate-950">
-                  {study.brand}
+                  <Link className="hover:text-slate-700" href={study.href}>
+                    {study.brand}
+                  </Link>
                 </h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600">
                   {highlight.summary}
                 </p>
-                <Link
-                  className="mt-5 inline-flex items-center text-sm font-semibold text-slate-950 hover:text-slate-700"
-                  href={study.href}
-                >
-                  查看案例
-                </Link>
               </div>
             </article>
           );

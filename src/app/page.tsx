@@ -17,7 +17,7 @@ export default function HomePage() {
   return (
     <>
       <SiteHeader />
-      <main className="portfolio-home">
+      <main className="portfolio-home min-h-screen bg-[var(--portfolio-bg)] pb-8 text-[var(--portfolio-ink)]">
         <PortfolioHero />
         <CaseStudyGrid />
         <CapabilitiesSection />

@@ -1,15 +1,15 @@
 import Image from "next/image";
-import { portfolioBrand, portfolioHero } from "@/content/portfolio";
+import { portfolioHero } from "@/content/portfolio";
 
 export function PortfolioHero() {
   return (
-    <section className="mx-auto max-w-7xl px-6 pb-8 pt-6 sm:px-8 lg:px-10 lg:pb-12 lg:pt-8">
+    <section
+      aria-label="作品集首页首屏"
+      className="mx-auto max-w-7xl px-6 pb-8 pt-6 sm:px-8 lg:px-10 lg:pb-12 lg:pt-8"
+    >
       <div className="grid gap-8 overflow-hidden rounded-[8px] bg-white shadow-[0_28px_90px_rgba(18,24,38,0.08)] lg:grid-cols-[1.05fr_0.95fr]">
         <div className="flex flex-col justify-center px-6 py-10 sm:px-10 sm:py-12 lg:px-14 lg:py-16">
-          <p className="text-sm font-semibold uppercase tracking-[0.08em] text-slate-500">
-            {portfolioBrand.name}
-          </p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
+          <h1 className="max-w-3xl text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
             {portfolioHero.title}
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
