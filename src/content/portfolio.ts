@@ -115,7 +115,7 @@ const portfolioDictionaries = {
       },
       {
         id: "realEstate",
-        image: "/images/portfolio/case-real-estate.jpg",
+        image: "/images/portfolio/case-real-estate.webp",
         alt: "房产经纪官网案例画面",
         summary:
           "把高净值房源展示、区域信任感与线索收集放进更轻盈的浏览路径里，兼顾品牌感与效率。",
@@ -243,7 +243,7 @@ const portfolioDictionaries = {
       },
       {
         id: "realEstate",
-        image: "/images/portfolio/case-real-estate.jpg",
+        image: "/images/portfolio/case-real-estate.webp",
         alt: "Real-estate website case-study preview",
         summary:
           "Combines premium listing presentation, local trust signals, and a clearer path to viewing inquiries.",

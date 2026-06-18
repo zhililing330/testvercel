@@ -405,13 +405,13 @@ export function DentalCasePage({ locale }: { locale: AppLocale }) {
           </div>
 
           <div className="relative min-h-[320px] lg:min-h-full">
-            <Image
-              src="/images/clinic-reception.png"
-              alt={content.receptionAlt}
-              fill
-              sizes="(min-width: 1024px) 380px, 100vw"
-              className="object-cover"
-            />
+              <Image
+                src="/images/clinic-reception.webp"
+                alt={content.receptionAlt}
+                fill
+                sizes="(min-width: 1024px) 380px, 100vw"
+                className="object-cover"
+              />
           </div>
         </div>
       </section>
@@ -439,13 +439,13 @@ export function DentalCasePage({ locale }: { locale: AppLocale }) {
           </div>
 
           <div className="relative mt-10 h-52 overflow-hidden rounded-[8px]">
-            <Image
-              src="/images/clinic-lounge.png"
-              alt={content.loungeAlt}
-              fill
-              sizes="(min-width: 1024px) 40vw, 100vw"
-              className="object-cover"
-            />
+              <Image
+                src="/images/clinic-lounge.webp"
+                alt={content.loungeAlt}
+                fill
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover"
+              />
           </div>
         </div>
 

@@ -177,7 +177,7 @@ export function RealEstateCasePage({ locale }: { locale: AppLocale }) {
 
         <div className="relative min-h-[360px] overflow-hidden rounded-[8px] bg-slate-200 shadow-[0_24px_72px_rgba(15,23,42,0.14)] sm:min-h-[460px]">
           <Image
-            src="/images/portfolio/case-real-estate.jpg"
+            src="/images/portfolio/case-real-estate.webp"
             alt={content.heroAlt}
             fill
             priority
