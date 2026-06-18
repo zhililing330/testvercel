@@ -118,7 +118,7 @@ a {
   font-weight: 700;
 }
 
-.portfolio-locale-switcher__link--active {
+.portfolio-header .portfolio-locale-switcher__link--active {
   background: var(--portfolio-ink);
   color: #ffffff;
 }
