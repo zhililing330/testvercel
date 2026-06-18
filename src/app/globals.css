@@ -123,7 +123,7 @@ a {
   color: #ffffff;
 }
 
-.portfolio-cta {
+.portfolio-header .portfolio-cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;

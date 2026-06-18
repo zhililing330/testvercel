@@ -9,4 +9,11 @@ describe("global portfolio styles", () => {
     expect(css).toContain(".portfolio-header .portfolio-locale-switcher__link--active");
     expect(css).toContain("color: #ffffff;");
   });
+
+  it("keeps the header CTA text white inside the site header", () => {
+    const css = readFileSync(join(process.cwd(), "src", "app", "globals.css"), "utf8");
+
+    expect(css).toContain(".portfolio-header .portfolio-cta");
+    expect(css).toContain("color: #ffffff;");
+  });
 });
